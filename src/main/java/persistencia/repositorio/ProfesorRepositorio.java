@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
 import persistencia.dominio.Profesor;
 
 public class ProfesorRepositorio implements IProfesorRepositorio {
@@ -46,5 +45,21 @@ public class ProfesorRepositorio implements IProfesorRepositorio {
 	private void cerrarConexion() {
 		em.flush();
 		em.getTransaction().commit();
+	}
+
+	@Override
+	public Profesor buscarProfesorPorApellido(String apellido) {
+		
+		abrirConexion();
+		
+		Query jpql2 = em
+                .createQuery("SELECT p FROM Profesor p WHERE p.apellido = :PROFESOR_APELLIDO");
+        jpql2.setParameter("PROFESOR_APELLIDO", apellido);
+        
+        Profesor unProfesor = (Profesor) jpql2.getSingleResult();
+        		
+        cerrarConexion();
+		return unProfesor;
+		
 	}
 }

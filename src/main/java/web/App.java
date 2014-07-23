@@ -71,6 +71,22 @@ public class App {
 
 		Escuela unaEscuela = es.buscarEscuelaPorId(idEscuela);
 		System.out.println(unaEscuela.toString());
+		
+		System.out.println();
+		System.out.println("Busqueda de Profesores");
+		System.out.println("--------------------");
+		System.out.println();
+
+		System.out.println("Apellido de Profesor a buscar?");
+		entradaTeclado = "";
+		entradaEscaner = new Scanner(System.in);
+		entradaTeclado = entradaEscaner.nextLine();
+		String ApellidoProfesor = entradaTeclado;
+
+		System.out.println("Listando profesores con apellido: " + ApellidoProfesor);
+
+		Profesor unProfesor = ps.buscarProfesorPorApellido(ApellidoProfesor);
+		System.out.println(unProfesor.toString());
 
 	}
 }

@@ -31,4 +31,11 @@ public class ProfesorServicio implements IProfesorServicio {
 
 	}
 
+
+	@Override
+	public Profesor buscarProfesorPorApellido(String apellido) {
+		
+		return pr.buscarProfesorPorApellido(apellido);
+	}
+
 }

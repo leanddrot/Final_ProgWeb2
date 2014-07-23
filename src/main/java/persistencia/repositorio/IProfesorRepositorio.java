@@ -1,7 +1,6 @@
 package persistencia.repositorio;
 
 import java.util.List;
-
 import persistencia.dominio.Profesor;
 
 public interface IProfesorRepositorio {
@@ -10,5 +9,5 @@ public interface IProfesorRepositorio {
 
 	List<Profesor> listarTodos();
 
-	
+	Profesor buscarProfesorPorApellido (String apellido);
 }
