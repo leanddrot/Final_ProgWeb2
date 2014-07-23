@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+	</bean>
+
+	<bean id="Escuela01" class="persistencia.dominio.Escuela">
+		<property name="id" value="1" />
+		<property name="nombre" value="EPET nº3" />
+	</bean>
+
+	<bean id="Escuela02" class="persistencia.dominio.Escuela">
+		<property name="id" value="2" />
+		<property name="nombre" value="CPEM nº26" />
+	</bean>
+
+	<bean id="Escuela03" class="persistencia.dominio.Escuela">
+		<property name="id" value="3" />
+		<property name="nombre" value="CPEM nº18" />
+	</bean>
+
+	<bean id="Escuela04" class="persistencia.dominio.Escuela">
+		<property name="id" value="4" />
+		<property name="nombre" value="CPEM nº12" />
+	</bean>
+
+	<bean id="Escuela05" class="persistencia.dominio.Escuela">
+		<property name="id" value="5" />
+		<property name="nombre" value="EPET nº5" />
+	</bean>
+
+	<bean id="Escuela06" class="persistencia.dominio.Escuela">
+		<property name="id" value="6" />
+		<property name="nombre" value="CPEM nº40" />
+	</bean>
+
+	<bean id="Profesor01" class="persistencia.dominio.Profesor">
+		<property name="id" value="1" />
+		<property name="nombre" value="Pepe" />
+		<property name="apellido" value="Martinez" />
+		<property name="tipoDoc" value="DNI" />
+		<property name="nroDoc" value="32654987" />
+		<property name="escuelas">
+			<list value-type="persistencia.dominio.Escuela">
+				<ref bean="Escuela01" />
+				<ref bean="Escuela02" />
+			</list>
+		</property>
+		<property name="fechaIngreso">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2010-01-01" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="Profesor02" class="persistencia.dominio.Profesor">
+		<property name="id" value="2" />
+		<property name="nombre" value="Juan" />
+		<property name="apellido" value="Perez" />
+		<property name="tipoDoc" value="DNI" />
+		<property name="nroDoc" value="92548754" />
+		<property name="escuelas">
+			<list value-type="persistencia.dominio.Escuela">
+				<ref bean="Escuela03" />
+				<ref bean="Escuela04" />
+			</list>
+		</property>
+		<property name="fechaIngreso">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2013-12-21" />
+			</bean>
+		</property>
+	</bean>
+
+</beans>
